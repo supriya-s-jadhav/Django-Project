@@ -93,7 +93,7 @@ python3 manage.py shell
 >>> from django.contrib.auth.models import User
 >>> Post.objects.all() #null
 >>> User.objects.all()
->>> user = User.objects.filter(username='ShivPriya').first()
+>>> user = User.objects.filter(username='admin').first()
 
 # create new post and make user as author of that post
 post_1 = Post(title='Blog 1',content='First Post Content!',author=user)

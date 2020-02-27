@@ -20,14 +20,17 @@ posts = [
         'date_posted': 'Feb 25, 2020'
     }
 ]
+def blog(request):
+    context =  {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'Profile/blog.html',context)
+
 
 def home(request):
     #date_now = datetime.now().strftime ("%A, %d %B, %Y at %X")
     #return HttpResponse("<h1> Home </h1> <br/>Hello, Welcome to my world !! <br/> Its: " + date_now +" <br/> - Shiv")
-    context =  {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'Profile/home.html',context)
+    return render(request,'Profile/home.html', {'title': 'About'})
 
 def about(request):
     return render(request,'Profile/about.html', {'title': 'About'})

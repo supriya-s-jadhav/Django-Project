@@ -7,6 +7,12 @@ Django-Project is an example of a basic web application developed using Django: 
 1. An admin View: The administrator can modify the content
 2. A public view: The public view of website lets people to view the website.
 
+# How does the final web application look like ?
+
+This is the basic view of the website. It is intended for learning purposes hence it's developed with very simple design. The website content and view are subject to change in future as I develop it further.
+
+![About Page](/Users/sjadhav/Documents/1.1AIC/4.LearningAndCertification/supriya-s-jadhav-github/Django-Project/Web Application View /about.png)
+
 # Audiences
 
 The Django-Project can be referred by anyone who is a beginner in programming and IT or if you are interested in learning/building a web application using Django Python framework. It gives you a very good hands-on experience.
