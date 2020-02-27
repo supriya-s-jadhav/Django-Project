@@ -59,6 +59,10 @@ Now run the command to create admin user credentials
 python3 manage.py createsuperuser
 ```
 
+examples:
+un: admin
+pwd: Testadmin123
+
 Run migrations command in order to get changes in the databases. It will give the output following the command
 ```
 python3 manage.py makemigrations
@@ -148,4 +152,76 @@ urlpatterns = [
     path('', include("Profile.urls")),
     path('admin/', admin.site.urls),
 ]
+```
+
+## How to do database setup ?
+
+1. Create the table schema in the database
+
+Django comes with built-in admin site where you can work with users and/or groups. By default, the Django ues SQLite database. As a beginner, it's good to experiment with pre-built database.
+
+Run following command to create the tables in the database
+```
+python3 manage.py migrate
+```
+
+2. Create models
+
+Define your models, which is nothing but the database layout. You will register your models in Profile/models.py file using class concepts. You will define as many classes as you want the table schema in your SQLite database. Sample model 'class post' is defined for your reference.
+
+Modify the Profile/models.py file as follows to create a table schema called 'post' in the database with fields Title as Charfield, Content as Textfield, Date posted as DateTimefield and Author as Foreign key.
+```
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+```
+
+3. Install Profile app in mysite project
+
+Modify the mysite/settings.py file as follows to tell the mysite project to include the Profile app.
+
+```
+INSTALLED_APPS = [
+    'Profile.apps.ProfileConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+4. Activate models
+
+Run the following command to save the changes made in your model and migrate it to the database
+```
+python3 manage.py makemigrations Profile
+```
+
+Run the following command, which takes migration names and returns their SQL
+```
+python3 manage.py sqlmigrate Profile 0001
+```
+
+Run the following command to create those tables in the database
+```
+python3 manage.py migrate
+```
+
+## Three-step guide to make and store the model changes
+
+As you develop your website, your models will change. To save the changes in your database and upgrade your application, remember below three commands
+
+1. Make changes in models in models.py file
+
+2. Run following command to create migrations for those changes
+```
+python3 manage.py makemigrations
+```
+
+3.Run following command to apply those changes to the database
+```
+python3 manage.py migrate
 ```
