@@ -11,7 +11,7 @@ Django-Project is an example of a basic web application developed using Django: 
 
 This is the basic view of the website. It is intended for learning purposes hence it's developed with very simple design. The website content and view are subject to change in future as I develop it further.
 
-![About Page](/Users/sjadhav/Documents/1.1AIC/4.LearningAndCertification/supriya-s-jadhav-github/Django-Project/Web Application View /about.png)
+![About Page](https://github.com/supriya-s-jadhav/Django-Project/blob/master/Web%20Application%20View%20/about.png)
 
 # Audiences
 
